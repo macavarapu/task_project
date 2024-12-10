@@ -16,7 +16,7 @@ class FlightSearchScreen extends StatelessWidget {
           onPressed: () {
             Navigator.pop(context);
             },
-        icon:Icon(Icons.arrow_back_ios,color: Colors.white,size: 20,) ,
+        icon:Icon(Icons.arrow_back,color: Colors.black,size: 20,) ,
         //child: Icon(Icons.arrow_back, color: Colors.white)
         ),
         title: Text("Ezy Travel", style: TextStyle(color: Colors.black)
@@ -64,9 +64,7 @@ class FlightSearchScreen extends StatelessWidget {
                         Icon(Icons.filter_list),
                       ],
                     ),
-                    // ElevatedButton(onPressed: () {}, child: Text("Sort")),
-                    // ElevatedButton(onPressed: () {}, child: Text("Non-Stop")),
-                    // ElevatedButton(onPressed: () {}, child: Text("Filter")),
+                   
                   ],
                 ),
               ],

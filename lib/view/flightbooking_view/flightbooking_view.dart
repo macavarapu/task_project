@@ -27,6 +27,7 @@ class Flighthomeview extends StatelessWidget {
             // Banner Section
             Stack(
               children: [
+                
                 Image.asset(
                   "assets/images/1.png",
                   height: 200,
@@ -35,7 +36,7 @@ class Flighthomeview extends StatelessWidget {
                 ),
                 Positioned(
                   left: 16,
-                  bottom: 16,
+                  top: 16,
                   child: Text(
                     "Let’s start your trip",
                     style: GoogleFonts.lato(
