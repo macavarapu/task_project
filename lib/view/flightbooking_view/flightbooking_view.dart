@@ -15,7 +15,10 @@ class Flighthomeview extends StatelessWidget {
           backgroundColor: Colors.green[100],
         elevation: 0,
         title: Text("Search Flights",
-            style: GoogleFonts.lato(color: Colors.white)),
+            style: GoogleFonts.lato(color: Colors.black)),
+            actions: [
+             IconButton(onPressed: (){}, icon: Image.asset("assets/images/Menu.png")),
+            ],
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -76,15 +79,17 @@ class Flighthomeview extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: 8),
-                  Row(
-                    children: [
-                      Expanded(
-                          child: _buildDropdown("1 Passenger", Icons.person)),
-                      const SizedBox(width: 8),
-                      Expanded(
-                          child: _buildDropdown("Economy Class",
-                              Icons.airline_seat_recline_normal)),
-                    ],
+                  SingleChildScrollView(
+                    child: Row(
+                      children: [
+                        Expanded(
+                            child: _buildDropdown("1 Passenger", Icons.person)),
+                        const SizedBox(width: 8),
+                        Expanded(
+                            child: _buildDropdown("Economy Class",
+                                Icons.airline_seat_recline_normal)),
+                      ],
+                    ),
                   ),
                   const SizedBox(height: 16),
                   ElevatedButton(
@@ -130,10 +135,11 @@ class Flighthomeview extends StatelessWidget {
                       },
                     ),
                   ),
-                  Text(
-                    'Flight & Hotel Packages',
-                    style: TextStyle(fontSize: 20, color: Colors.black),
-                  ),
+                  SizedBox(height: 20 ,),
+                  // const Text(
+                  //   'Flight & Hotel Packages',
+                  //   style: TextStyle(fontSize: 20, color: Colors.black),
+                  // ),
                   Image.asset("assets/images/4.png")
                 ],
               ),
@@ -182,18 +188,34 @@ class Flighthomeview extends StatelessWidget {
       ),
     );
   }
-
-  Widget _buildDropdown(String hint, IconData icon) {
-    return DropdownButtonFormField(
-      decoration: InputDecoration(
-        
-        prefixIcon: Icon(icon, color: Colors.green),
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
+Widget _buildDropdown(String hint, IconData icon) {
+  return DropdownButtonFormField<String>(
+    isExpanded: true, // Ensures the dropdown expands properly.
+    decoration: InputDecoration(
+      prefixIcon: Icon(icon, color: Colors.green),
+      border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
+    ),
+    items: [
+      DropdownMenuItem(
+        value: hint,
+        child: Text(hint),
       ),
-      items: [DropdownMenuItem(child: Text(hint))],
-      onChanged: (value) {},
-    );
-  }
+    ],
+    onChanged: (value) {},
+  );
+}
+
+  // Widget _buildDropdown(String hint, IconData icon) {
+  //   return DropdownButtonFormField(
+  //     decoration: InputDecoration(
+        
+  //       prefixIcon: Icon(icon, color: Colors.green),
+  //       border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
+  //     ),
+  //     items: [DropdownMenuItem(child: Text(hint))],
+  //     onChanged: (value) {},
+  //   );
+  // }
 
   Widget _buildInspirationCard(FlightInspiration inspiration) {
     return Column(
